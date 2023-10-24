@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Hardcoded SendinBlue API key for testing (replace with your actual key)
 // const SENDINBLUE_API_KEY = "xsmtpsib-6bd275422503352161c768a4dae4a154d5592f2e328e750ffcd055cbcddf3f7b-6KjySmNF05VfnBsL";
-const SENDINBLUE_API_KEY = process.env.SENDINBLUE_API_KEY
+// const SENDINBLUE_API_KEY = process.env.SENDINBLUE_API_KEY
 
 export async function SendMail({ status, to, subject, text }) {
   try {
