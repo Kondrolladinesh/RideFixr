@@ -23,6 +23,10 @@
   margin-left: 25px;
   list-style-type: none;
 }
+
+.nav a{
+  text-decoration: none;
+}
 .nav li button{
   border: none;
   background-color: transparent;
