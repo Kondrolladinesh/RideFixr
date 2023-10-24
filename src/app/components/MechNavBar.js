@@ -55,7 +55,7 @@ const MechNavBar = () => {
         <FiMenu className="usericon1" onClick={toggleMobileMenu} />
         <FaUserCircle className="usericon1" onClick={toggleProfile} />
       </div>
-      <ul className={`nav ${mobileMenuVisible ? "mobile-visible" : ""}`}>
+      <ul className={`nav ${mobileMenuVisible ? "profile-card" : ""}`}>
         <li>
           <a href="/mechDashBoard">
             <button>Home</button>
