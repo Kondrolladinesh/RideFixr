@@ -12,7 +12,7 @@
     /* Styles to apply when the screen width is 768px or less */
     grid-template-rows: repeat(4, 1.5fr);
     grid-template-columns: repeat(1, 1fr);
-    min-height:120vh;
+    min-height: 120vh;
   }
 }
 .item {
@@ -35,7 +35,7 @@
   color: #fff;
 }
 .card1 {
-  background-color: #26577C;
+  background-color: #26577c;
   width: 100%;
   height: 80%;
   border-radius: 15px;
@@ -45,7 +45,7 @@
 }
 
 .card2 {
-  background-color: #26577C;
+  background-color: #26577c;
   width: 100%;
   height: 80%;
   border-radius: 15px;
@@ -54,7 +54,7 @@
   background-size: cover;
 }
 .card3 {
-  background-color: #26577C;
+  background-color: #26577c;
   width: 100%;
   height: 80%;
   border-radius: 15px;
@@ -63,7 +63,7 @@
   background-size: cover;
 }
 .card4 {
-  background-color: #26577C;
+  background-color: #26577c;
   width: 100%;
   height: 80%;
   border-radius: 15px;
@@ -98,7 +98,7 @@
 }
 
 .flip-card-front {
-  background-color: #26577C;
+  background-color: #26577c;
   color: black;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -113,12 +113,12 @@
   transform: rotateY(180deg);
 }
 
-.flip-card-back h1{
+.flip-card-back h1 {
   margin: 4px;
   color: black;
 }
 .flip-card-back button {
-  background-color: #26577C;
+  background-color: #26577c;
   border-radius: 5px;
   border: none;
   width: 80%;
@@ -126,11 +126,7 @@
   color: #fff;
 }
 
-
-
-
-
-.adjust-mech{
+.adjust-mech {
   width: 100%;
   /* background-color: #124b71; */
   min-height: 80vh;
@@ -145,35 +141,38 @@
 
 @media (max-width: 900px) {
   .adjust-mech {
-    grid-template-columns: repeat(2, 1fr); /* Change to 2 columns for smaller screens */
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Change to 2 columns for smaller screens */
   }
 }
 
 @media (max-width: 700px) {
-    .adjust-mech {
-      grid-template-columns: 1fr; /* Change to 2 columns for smaller screens */
-    }
+  .adjust-mech {
+    grid-template-columns: 1fr; /* Change to 2 columns for smaller screens */
   }
+}
 /* Mech Card Css */
-.Mech-card-container{
+.Mech-card-container {
   display: flex;
   flex-direction: column;
   width: 95%;
   background-color: aliceblue;
   border-radius: 10px;
-  border: #E55604 solid ;
+  border: #e55604 solid;
 }
 
-.Mech-card{
+.Mech-card {
   width: 100%;
-  background-color: #EBE4D1;
+  background-color: #ebe4d1;
   border-radius: 10px;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 2fr 0.2fr;
 }
 
-.Mech-card .profile-panel{
+.Mech-card .profile-panel {
   width: 100%;
   background-color: rgb(160, 155, 155);
   display: flex;
@@ -182,16 +181,16 @@
   align-items: center;
 }
 
-.Mech-card .profile-panel .profile-icon{
+.Mech-card .profile-panel .profile-icon {
   font-size: 6rem;
   color: #fff;
 }
 
-.connect-icon{
+.connect-icon {
   font-size: 35px;
 }
 
-.mech-process{
+.mech-process {
   display: flex;
   background-color: #fff;
   width: 94%;
@@ -200,62 +199,62 @@
   margin: 0 10px;
 }
 
-.mech-process div{
+.mech-process div {
   display: flex;
   flex-direction: row;
   gap: 5px;
   align-items: center;
 }
 
-.mech-process .Cancel{
+.mech-process .Cancel {
   width: 60px;
   height: 30px;
   border: none;
   background-color: red;
 }
 
-.mech-process .feedback{
+.mech-process .feedback {
   width: 70px;
   height: 30px;
   border: none;
   background-color: red;
 }
 
-.icon{
+.icon {
   font-size: 30px;
 }
 
-.feedback-modal{
+.feedback-modal {
   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
-    background-color:#fff; 
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%);
-    width: 30%;
-    height: 50%;
-    border-radius: 10px;
-    z-index: 6;
-    border: 1px solid #ddd;
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 50%;
+  border-radius: 10px;
+  z-index: 6;
+  border: 1px solid #ddd;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
-    @media (max-width: 768px) {
-      /* display: none; */
-      width: 25%;
-      height: 20%;
-    }
+  @media (max-width: 768px) {
+    width: 90%;
+    height: 50%;
+  }
 }
 
-.cancel-icon{
+.cancel-icon {
   display: flex;
   justify-content: flex-end;
   background-color: transparent;
 }
 
-.feedback-container{
+.feedback-container {
   display: flex;
   flex-direction: column;
   width: 94%;
@@ -263,42 +262,42 @@
   margin: 3px 10px;
   border-radius: 5px;
   align-items: center;
-  background-color:#fff; 
+  background-color: #fff;
 }
 
-.feedback-container h2{
+.feedback-container h2 {
   margin: 3px;
 }
-.feedback-container p{
+.feedback-container p {
   margin: 0px;
 }
 
-.feedback-container form{
+.feedback-container form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width:92%;
+  width: 92%;
   height: 100%;
 }
 
-.feedback-container .Rating-div{
+.feedback-container .Rating-div {
   display: flex;
   width: 90%;
   flex-direction: column;
 }
 
-.feedback-container textarea{
+.feedback-container textarea {
   width: 98%;
-    height: 60%;
-    border-radius: 5px;
-    border-color: black;
-    background-color: #EBE4D1;
+  height: 60%;
+  border-radius: 5px;
+  border-color: black;
+  background-color: #ebe4d1;
 }
 
-.feedback-container button{
+.feedback-container button {
   width: 100px;
   height: 40px;
-  background-color: #E55604;
+  background-color: #e55604;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -307,33 +306,32 @@
   margin-bottom: 10px;
 }
 
-.details-panel{
+.details-panel {
   display: flex;
   width: 100%;
   flex-direction: column;
 }
-.details-panel .mech_details{
+.details-panel .mech_details {
   display: grid;
   grid-template-columns: 1fr 2fr;
   margin-left: 10px;
   color: #124b71;
 }
 
-.details-panel h3{
+.details-panel h3 {
   margin: 2px;
 }
 
-.details-panel h4{
+.details-panel h4 {
   margin: 2px;
 }
 
-.details-panel h5{
+.details-panel h5 {
   margin: 3px;
 }
-.details-panel h6{
+.details-panel h6 {
   margin: 2px;
 }
-
 
 .details-panel .full-star {
   color: gold; /* Color for full stars */

@@ -13,21 +13,21 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-content: center;
-    place-items: center;
+  place-items: center;
   width: 100%;
   height: 10vh;
   margin-top: 5px;
-  background-color: #26577C;
+  background-color: #26577c;
   color: #fff;
   border-radius: 10px;
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    grid-template-rows:  1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     height: fit-content;
   }
 }
 
-.mech-details .request-details{
+.mech-details .request-details {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -43,7 +43,7 @@
   }
 }
 
-.mech-details .details{
+.mech-details .details {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,8 +52,8 @@
   height: 70%;
   margin: 10px;
   border-radius: 10px;
-  background-color: #EBE4D1;
-  color: #26577C;
+  background-color: #ebe4d1;
+  color: #26577c;
   @media (max-width: 768px) {
     width: 80%;
     height: 85%;
@@ -74,7 +74,7 @@
 .map-container {
   width: 100%;
   height: 80vh;
-  background-color: #EBE4D1;
+  background-color: #ebe4d1;
   margin-bottom: 10px;
 }
 
@@ -83,7 +83,7 @@
 .userCard {
   display: grid;
   grid-template-columns: 0.8fr 1.8fr 1.4fr 2fr;
-  background-color: #EBE4D1;
+  background-color: #ebe4d1;
   width: 99%;
   height: 100px;
   margin: 10px;
@@ -129,10 +129,10 @@ h3 {
   margin: 2px;
   font-size: 16px;
 }
-h4{
-    margin: 2px;
-    font-size: 14px;
-  }
+h4 {
+  margin: 2px;
+  font-size: 14px;
+}
 
 .user-Status {
   display: flex;
@@ -159,10 +159,10 @@ h4{
 }
 
 .user-buttons .complete {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-  }
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
 
 .user-buttons .Accept {
   width: 60px;
@@ -185,45 +185,44 @@ h4{
   color: #fff;
 }
 
-.user-buttons .feedback{
+.user-buttons .feedback {
   width: fit-content;
   height: 30px;
   border: none;
   color: #fff;
-  background-color: #26577C;
+  background-color: #26577c;
 }
 
-.feedback-modal{
+.feedback-modal {
   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
-    background-color:#fff; 
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%);
-    width: 30%;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 50%;
+  border-radius: 10px;
+  z-index: 6;
+  border: 1px solid #ddd;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  @media (max-width: 768px) {
+    width: 90%;
     height: 50%;
-    border-radius: 10px;
-    z-index: 6;
-    border: 1px solid #ddd;
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-
-    @media (max-width: 768px) {
-      /* display: none; */
-      width: 25%;
-      height: 20%;
-    }
+  }
 }
 
-.cancel-icon{
+.cancel-icon {
   display: flex;
   justify-content: flex-end;
   background-color: transparent;
 }
 
-.feedback-container{
+.feedback-container {
   display: flex;
   flex-direction: column;
   width: 94%;
@@ -231,42 +230,42 @@ h4{
   margin: 3px 10px;
   border-radius: 5px;
   align-items: center;
-  background-color:#fff; 
+  background-color: #fff;
 }
 
-.feedback-container h2{
+.feedback-container h2 {
   margin: 3px;
 }
-.feedback-container p{
+.feedback-container p {
   margin: 0px;
 }
 
-.feedback-container form{
+.feedback-container form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width:92%;
+  width: 92%;
   height: 100%;
 }
 
-.feedback-container .Rating-div{
+.feedback-container .Rating-div {
   display: flex;
   width: 90%;
   flex-direction: column;
 }
 
-.feedback-container textarea{
+.feedback-container textarea {
   width: 98%;
-    height: 60%;
-    border-radius: 5px;
-    border-color: black;
-    background-color: #EBE4D1;
+  height: 60%;
+  border-radius: 5px;
+  border-color: black;
+  background-color: #ebe4d1;
 }
 
-.feedback-container button{
+.feedback-container button {
   width: 100px;
   height: 40px;
-  background-color: #E55604;
+  background-color: #e55604;
   color: #fff;
   border: none;
   border-radius: 5px;

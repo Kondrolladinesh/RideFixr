@@ -52,9 +52,6 @@ const MechCard = ({
         }
     } catch (error) {
         console.log("An error occurred in the useEffect:");
-        // toast.error("Network Error", {
-        //   position: toast.POSITION.BOTTOM_CENTER,
-        // });
     }
 }, [userList, userStatus]);
 
@@ -142,7 +139,7 @@ const convertToStars = (rating) => {
       arrayFilters: [{ "elem.Id": value.userId }],
     };
     let mechData = await fetch(
-      `http://localhost:3000/api/mechanicdetails/${Mid}`,
+      `/api/mechanicdetails/${Mid}`,
       {
         method: "PUT",
         body: JSON.stringify({ update, options }),
