@@ -52,7 +52,8 @@
   height: 70%;
   margin: 10px;
   border-radius: 10px;
-  background-color: #E55604;
+  background-color: #EBE4D1;
+  color: #26577C;
   @media (max-width: 768px) {
     width: 80%;
     height: 85%;
