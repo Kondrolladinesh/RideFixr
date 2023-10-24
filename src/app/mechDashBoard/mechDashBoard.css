@@ -16,10 +16,11 @@
   justify-content: space-around;
   gap: 10px;
   width: 100%;
-  height: 10vh;
+  height: 11vh;
   margin-top: 5px;
   background-color: #26577C;
   color: #fff;
+  border-radius: 10px;
   @media (max-width: 768px) {
     flex-direction: column;
     height: fit-content;
@@ -34,7 +35,11 @@
   justify-content: space-around;
   align-items: center;
   @media (max-width: 768px) {
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-content: center;
+    place-items: center;
+    height: 90px;
   }
 }
 
@@ -49,8 +54,9 @@
   border-radius: 10px;
   background-color: #E55604;
   @media (max-width: 768px) {
-    width: 45%;
+    width: 80%;
     height: 85%;
+    margin: 15px 0;
   }
 }
 
