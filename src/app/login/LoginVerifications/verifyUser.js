@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 
 export async function verifyUser(email, password) {
   try {
-    const response = await fetch("http://localhost:3000/api/userdetails");
+    const response = await fetch("/api/userdetails");
     if (!response.ok) {
       toast.error("Network Error", {
         position: toast.POSITION.BOTTOM_CENTER,
