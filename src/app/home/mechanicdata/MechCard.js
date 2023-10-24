@@ -149,7 +149,9 @@ const convertToStars = (rating) => {
     mechData = await mechData.json();
 
     if (mechData.result) {
-      alert("User Status has been Updated");
+      toast.success("Request Successfully!!", {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
     }
   };
 
