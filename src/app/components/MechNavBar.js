@@ -55,7 +55,7 @@ const MechNavBar = () => {
         <FiMenu className="usericon1" onClick={toggleMobileMenu} />
         <FaUserCircle className="usericon1" onClick={toggleProfile} />
       </div>
-      <ul className={`nav ${mobileMenuVisible ? "profile-card" : ""}`}>
+      <div className={`nav ${mobileMenuVisible ? "profile-card" : ""}`}>
         <li>
           <a href="/mechDashBoard">
             <button>Home</button>
@@ -64,7 +64,7 @@ const MechNavBar = () => {
         <li>
           <FaUserCircle onClick={toggleProfile} className="usericon2" />
         </li>
-      </ul>
+      </div>
       <Modal
         backdrop="transparent"
         isOpen={activeProfile}
