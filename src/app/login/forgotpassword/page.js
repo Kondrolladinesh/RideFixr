@@ -257,6 +257,10 @@ const ForgotPassword = () => {
                 <p>Not a member?</p>
                 <Link href="/register">Sign Up</Link>
               </div>
+              <div>
+                <p>Already a member?</p>
+                <Link href="/login">Sign In</Link>
+              </div>
             </>
           )}
         </div>
