@@ -1,0 +1,150 @@
+/* Profile page Css Code */
+
+.profile-main {
+  display: flex;
+  width: 100%;
+  height: 85vh;
+  /* background-color: blanchedalmond; */
+  align-items: center;
+  justify-content: center;
+}
+.form {
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  background-color: #EBE4D1;
+  border-radius: 10px;
+  /* padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+}
+
+.form-div{
+  width: 40%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  background-color: #EBE4D1;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  @media (max-width: 770px) {
+    width: 80%;
+    margin: 20px 0;
+  }
+
+}
+.panel-1 {
+  display: grid;
+  width: 100%;
+  height: 25%;
+  border-radius: 5px;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 3fr;
+  gap: 10px;
+  @media (max-width: 770px) {
+    grid-template-rows: 1fr 0.5fr;
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel-1 .user_profile{
+  display: flex;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel-1 .user_profile input[type="file"]{
+  display: none;
+}
+
+.panel-username {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  @media (max-width: 770px) {
+    justify-content: center;
+  }
+}
+
+.panel-username .icon{
+  font-size:  25px;
+}
+
+.panel-username h1{
+  font-size: 2rem;
+  /* margin: 0; */
+  @media (max-width: 770px) {
+    font-size: 1.6rem;
+  }
+}
+
+.panel-2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  /* background-color: azure; */
+  border-radius: 5px;
+  margin-bottom: 25px;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-panel{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 3fr;
+  width: 90%;
+  align-items: center;
+}
+
+.input-panel label{
+  font-weight: bold;
+  font-stretch: large;
+}
+
+.panel-2 input {
+  display: flex;
+  width: 98%;
+  height: 30px;
+  border-radius: 5px;
+  padding-left: 15px;
+  /* border-color: black; */
+  border: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel-2 h3{
+    margin: 10px;
+} 
+
+.profile-main button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100px;
+  height: 30px;
+  background-color: #E55604;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 3 1px;
+  font-weight: bold;
+}
+
+.button-panel{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}

@@ -1,95 +1,56 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+import Image from "next/image";
+import "./LandingPage.css";
+import { useRouter } from "next/navigation";
+import NavWithOutAccess from "./components/NavWithOutAccess";
+import ServicesOffered from "./ServicesOffered";
+import UserTestimonialSlider from "./UserTestimonialSlider";
+import Footer from "./Footer";
 
 export default function Home() {
+  const router = useRouter();
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <NavWithOutAccess />
+      <section id="home" className="hero-container">
+        <div className="hero-content">
+          <div className="blur_background">
+            <h1 className="hero-heading">
+              Swift Roadside Assistance When You Need It Most
+            </h1>
+            <p className="hero-subheading">
+              Your Trusted Companion on the Road – RideFixr ensures help is
+              just a tap away.
+            </p>
+          </div>
+          <div className="cta-buttons">
+            <a href="/login"><button className="primary-cta">Get Started Now</button></a>
+            <button className="secondary-cta"><a href="#about">Learn More</a></button>
+          </div>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+      </section>
+      <section id="about" className="about-container">
+        <div className="about-content">
+          <Image
+            src={"/About_Icon.png"}
+            alt="Logo"
+            width={60}
+            height={60}
+            priority
+          />
+          <h2 className="about-heading">About RiderFixr</h2>
+          <p className="about-description">
+            RiderFixr is your reliable partner in times of vehicle trouble. We
+            connect riders with skilled mechanics, providing swift assistance
+            wherever you are.
           </p>
-        </a>
+        </div>
+      </section>
+      <div id="services">
+      <ServicesOffered />
       </div>
+      <UserTestimonialSlider />
+      <Footer />
     </main>
-  )
+  );
 }
