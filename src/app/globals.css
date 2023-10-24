@@ -93,10 +93,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color:aqua; */
   width: 70px;
-  /* margin:30px; */
   gap: 20px;
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 .usericon1{
   font-size: 35px;
