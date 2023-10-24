@@ -8,7 +8,6 @@ import Image from "next/image";
 import { FaEdit, FaArrowCircleLeft } from "react-icons/fa";
 import { FiSave, FiXSquare } from "react-icons/fi";
 import { updateUserProfileImage } from "./userProfileUrlAPI";
-import bcrypt from "bcryptjs";
 
 const UserProfile = () => {
   const [UserName, setUserName] = useState("");
@@ -36,7 +35,7 @@ const UserProfile = () => {
 
   const FindprofileOfUser = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/userprofiles/${userid}`);
+      const response = await fetch(`/api/userprofiles/${userid}`);
       if (response.ok) {
         const userData = await response.json();
         // setPdfUrl(base64ToImageUrl(userData.result.ProfileUrl));
@@ -57,7 +56,7 @@ const UserProfile = () => {
     // const Password = await bcrypt.hash(password, 10);
     try {
       const response = await fetch(
-        `http://localhost:3000/api/userdetails/${userid}`,
+        `/api/userdetails/${userid}`,
         {
           method: "PUT",
           body: JSON.stringify({ UserName, Email, PhoneNo }),

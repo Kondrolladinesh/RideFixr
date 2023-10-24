@@ -41,9 +41,9 @@ const ForgotPassword = () => {
     e.preventDefault();
     let apiUrl;
     if (mechanic) {
-      apiUrl = "http://localhost:3000/api/mechanicdetails";
+      apiUrl = "/api/mechanicdetails";
     } else {
-      apiUrl = "http://localhost:3000/api/userdetails";
+      apiUrl = "/api/userdetails";
     }
 
     try {

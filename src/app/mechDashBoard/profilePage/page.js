@@ -45,7 +45,7 @@ const UserProfile = () => {
   const FindprofileOfMech = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/mechprofiles/${mechid}`
+        `/api/mechprofiles/${mechid}`
       );
       if (response.ok) {
         const userData = await response.json();
@@ -69,7 +69,7 @@ const UserProfile = () => {
     const Longitude = location.lng;
     // const Password = await bcrypt.hash(password, 10);
     let userData = await fetch(
-      "http://localhost:3000/api/mechanicdetails/" + mechid,
+      "/api/mechanicdetails/" + mechid,
       {
         method: "PUT",
         body: JSON.stringify({

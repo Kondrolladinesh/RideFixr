@@ -30,7 +30,7 @@ const MechanicData = () => {
   };
 
   const Mechdata = async () => {
-    let data = await fetch("http://localhost:3000/api/mechanicdetails");
+    let data = await fetch("/api/mechanicdetails");
     data = await data.json();
     if (data.success) {
       setMechdatalist(data.result);

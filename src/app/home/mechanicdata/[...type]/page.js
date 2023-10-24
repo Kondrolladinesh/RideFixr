@@ -40,7 +40,7 @@ export default function MechanicDataType(props) {
 
   const fetchMechData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/mechanicdetails");
+      const response = await fetch("/api/mechanicdetails");
       const data = await response.json();
 
       if (data.success) {
@@ -74,7 +74,7 @@ export default function MechanicDataType(props) {
       }
 
       const response = await fetch(
-        `http://localhost:3000/api/mechanicdetails/${mechid}`,
+        `/api/mechanicdetails/${mechid}`,
         {
           method: "PUT",
           body: JSON.stringify(update),

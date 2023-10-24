@@ -61,7 +61,7 @@ const Regester = () => {
         const Longitude = location.lng;
       
         // Step 1: Insert data into the first collection
-        const response = await fetch("http://localhost:3000/api/mechanicdetails", {
+        const response = await fetch("/api/mechanicdetails", {
           method: "POST",
           body: JSON.stringify({
             UserName,
@@ -93,7 +93,7 @@ const Regester = () => {
             // Step 2: Insert data into the second collection using the retrieved _id
             const MechId = result.result._id; // Assuming this is the _id of the first collection
             console.log(MechId)
-            const response2 = await fetch("http://localhost:3000/api/mechanicPDF", {
+            const response2 = await fetch("/api/mechanicPDF", {
               method: "POST",
               body: JSON.stringify({ MechId, UploadFile: UploadFile.myFile }),
             });
@@ -111,7 +111,7 @@ const Regester = () => {
         }
       }
        else {
-        let result = await fetch("http://localhost:3000/api/userdetails", {
+        let result = await fetch("/api/userdetails", {
           method: "POST",
           body: JSON.stringify({ UserName, Email, Password, PhoneNo}),
         });

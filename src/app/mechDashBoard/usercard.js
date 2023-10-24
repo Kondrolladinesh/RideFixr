@@ -102,7 +102,7 @@ const UserCard = ({
   const FindprofileOfUser = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/userprofiles/${keyId}`
+        `/api/userprofiles/${keyId}`
       );
       if (response.ok) {
         const userData = await response.json();

@@ -2,7 +2,7 @@
 export async function updateMechProfileImage(mechId, base64Data) {
     try {
         // Check if user profile data already exists by making a GET request
-        const getUserProfileResponse = await fetch(`http://localhost:3000/api/mechprofiles`);
+        const getUserProfileResponse = await fetch(`/api/mechprofiles`);
         if (!getUserProfileResponse.ok) {
             throw new Error(`Error checking user profile data: ${getUserProfileResponse.statusText}`);
         }
@@ -12,7 +12,7 @@ export async function updateMechProfileImage(mechId, base64Data) {
 
         if (existingUserData) {
             // User profile data exists, perform a PUT request to update
-            const putResponse = await fetch(`http://localhost:3000/api/mechprofiles/${mechId}`, {
+            const putResponse = await fetch(`/api/mechprofiles/${mechId}`, {
                 method: "PUT",
                 body: JSON.stringify({
                     ProfileUrl: base64Data,
@@ -29,7 +29,7 @@ export async function updateMechProfileImage(mechId, base64Data) {
             }
         } else {
             // User profile data doesn't exist, perform a POST request
-            const postResponse = await fetch(`http://localhost:3000/api/mechprofiles`, {
+            const postResponse = await fetch(`/api/mechprofiles`, {
                 method: "POST",
                 body: JSON.stringify({
                     MechId: mechId,

@@ -4,7 +4,7 @@ export const getUserDetails = async () => {
   try {
     let verify = cookies.get("userid");
     let response = await fetch(
-      `http://localhost:3000/api/userdetails/${verify}`
+      `/api/userdetails/${verify}`
     );
     const userData = await response.json();
     if (userData.success) {

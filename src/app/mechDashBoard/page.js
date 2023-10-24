@@ -42,7 +42,7 @@ const MechDashBoard = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/mechanicdetails/${mechid}`
+          `/api/mechanicdetails/${mechid}`
         );
         const data = await response.json();
 
@@ -103,7 +103,7 @@ const MechDashBoard = () => {
       arrayFilters: [{ "elem._id": value.userId }],
     };
     let mechData = await fetch(
-      `http://localhost:3000/api/mechanicdetails/${Mid}`,
+      `/api/mechanicdetails/${Mid}`,
       {
         method: "PUT",
         body: JSON.stringify({ update, options }),
@@ -148,7 +148,7 @@ const MechDashBoard = () => {
     let update = { $push: { MechFeedback: value } };
 
     let userData = await fetch(
-      `http://localhost:3000/api/userdetails/${userid}`,
+      `/api/userdetails/${userid}`,
       {
         method: "PUT",
         body: JSON.stringify(update),
