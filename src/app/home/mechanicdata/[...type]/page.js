@@ -111,6 +111,7 @@ export default function MechanicDataType(props) {
       Longitude: Coords[1],
       Distance: data.distance,
       Status: "Pending",
+      Query:"",
       Time: getDateTime(),
     };
     updateMech(data.mechId, userDetails, "userDetails");
@@ -173,6 +174,7 @@ export default function MechanicDataType(props) {
             name={item.UserName}
             phoneNo={item.PhoneNo}
             service={item.MechType}
+            serviceCharge={item.MinimumCharge}
             address={item.Address}
             nearby={calcDistance(sCoords, {
               latitude: item.Latitude,

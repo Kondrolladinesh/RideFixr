@@ -20,6 +20,7 @@ const UserCard = ({
   name,
   phoneNo,
   status,
+  query,
   distance,
   time,
   userLat,
@@ -35,6 +36,7 @@ const UserCard = ({
   const [feedBack, setFeedBack] = useState("");
   const [rating, setRating] = useState(0);
   const [pdfUrl, setPdfUrl] = useState("");
+  const [activeQuery, setActiveQuery] = useState(false);
 
   useEffect(() => {
     onTheWay(status);
@@ -78,6 +80,10 @@ const UserCard = ({
 
   const handleFeedback = () => {
     setActiveProfile(!activeProfile);
+  };
+
+  const handleQuery = () => {
+    setActiveQuery(!activeQuery);
   };
 
   const getFeedback = (e) => {
@@ -176,6 +182,9 @@ const UserCard = ({
       <div className="user-buttons">
         {status == "Pending" && (
           <div className="pending">
+            <button className="MASJ" onClick={handleQuery}>
+              View Query
+            </button>
             <button className="Accept" onClick={handleAccept}>
               Accept
             </button>
@@ -200,6 +209,22 @@ const UserCard = ({
           </div>
         )}
       </div>
+      <Modal
+        backdrop="transparent"
+        isOpen={activeQuery}
+        onRequestClose={() => setActiveQuery(!activeQuery)}
+        className="query-modal"
+      >
+        <div className="cancel-icon">
+          <FaTimes size={24} onClick={() => setActiveQuery(!activeQuery)} />
+        </div>
+        <div className="feedback-container">
+          <h2>User facing these Problem</h2>
+          <div className="query-box">
+            <p>{query}</p>
+          </div>
+        </div>
+      </Modal>
       <Modal
         backdrop="transparent"
         isOpen={activeProfile}

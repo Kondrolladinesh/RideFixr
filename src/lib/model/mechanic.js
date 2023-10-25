@@ -7,7 +7,7 @@ const mechanicModel = new mongoose.Schema({
     PhoneNo: Number,
     MechType: String,
     VehicleType: String,
-    // UploadFile: String,
+    MinimumCharge: Number,
     Address: String,
     City: String,
     State: String,
@@ -23,6 +23,7 @@ const mechanicModel = new mongoose.Schema({
             Longitude: String,
             Distance: Number,
             Status: String,
+            Query: String,
             Time: String
         }
       ],

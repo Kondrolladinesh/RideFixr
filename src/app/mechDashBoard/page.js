@@ -215,6 +215,7 @@ const MechDashBoard = () => {
               name={item.Name}
               phoneNo={item.PhoneNo}
               status={item.Status}
+              query={item.Query}
               distance={item.Distance}
               time={item.Time}
               userLat={item.Latitude}

@@ -5,8 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import codeAddress from "../home/LocationFunctions/AddressToLocation";
 import bcrypt from "bcryptjs";
-import {FaFileUpload} from "react-icons/fa"
-
+import { FaFileUpload } from "react-icons/fa";
 
 const Regester = () => {
   const router = useRouter();
@@ -18,11 +17,12 @@ const Regester = () => {
   const [checkBox, setCheckBox] = useState(false);
   const [MechType, setMechType] = useState("");
   const [VehicleType, setVehicleType] = useState("");
+  const [MinimumCharge,setMinimumCharge] = useState();
   const [Address, setAddress] = useState("");
   const [City, setCity] = useState("");
   const [State, setState] = useState("");
   const [loading, setLoading] = useState(false);
-  const [UploadFile, setUploadFile] = useState({ myFile : ""});
+  const [UploadFile, setUploadFile] = useState({ myFile: "" });
   const [passwordStrength, setPasswordStrength] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
@@ -56,10 +56,12 @@ const Regester = () => {
     try {
       setLoading(true);
       if (checkBox) {
-        const location = await codeAddress(Address == City ? Address + State : Address + City + State);
+        const location = await codeAddress(
+          Address == City ? Address + State : Address + City + State
+        );
         const Latitude = location.lat;
         const Longitude = location.lng;
-      
+
         // Step 1: Insert data into the first collection
         const response = await fetch("/api/mechanicdetails", {
           method: "POST",
@@ -70,6 +72,7 @@ const Regester = () => {
             PhoneNo,
             MechType,
             VehicleType,
+            MinimumCharge,
             Address,
             City,
             State,
@@ -79,7 +82,7 @@ const Regester = () => {
             UserArray: [],
           }),
         });
-      
+
         const result = await response.json();
         // console.log(result);
         if (result.existing) {
@@ -92,13 +95,13 @@ const Regester = () => {
           if (result.success) {
             // Step 2: Insert data into the second collection using the retrieved _id
             const MechId = result.result._id; // Assuming this is the _id of the first collection
-            console.log(MechId)
+            console.log(MechId);
             const response2 = await fetch("/api/mechanicPDF", {
               method: "POST",
               body: JSON.stringify({ MechId, UploadFile: UploadFile.myFile }),
             });
             const result2 = await response2.json();
-      
+
             if (result2.success) {
               alert("It takes 24 hours to verify by admin");
               router.push("/login");
@@ -109,20 +112,19 @@ const Regester = () => {
             alert("Details Not added");
           }
         }
-      }
-       else {
+      } else {
         let result = await fetch("/api/userdetails", {
           method: "POST",
-          body: JSON.stringify({ UserName, Email, Password, PhoneNo}),
+          body: JSON.stringify({ UserName, Email, Password, PhoneNo }),
         });
         result = await result.json();
         if (result.existing) {
           alert(result.message);
           router.push("/login");
-        }else if(result.existingMech){
+        } else if (result.existingMech) {
           alert(result.message);
           router.push("/login");
-        }else {
+        } else {
           if (result.success) {
             alert("New user Added");
             router.push("/login");
@@ -138,23 +140,23 @@ const Regester = () => {
     }
   };
 
-  const handleFileUpload= async (e) =>{
+  const handleFileUpload = async (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
       // Create a new FileReader
       const reader = new FileReader();
-  
+
       // Set up an event listener for when the FileReader has read the file
       reader.onload = function (e) {
         // The result property contains the base64-encoded data
         const base64Data = e.target.result;
-        setUploadFile({...UploadFile,myFile: base64Data});
+        setUploadFile({ ...UploadFile, myFile: base64Data });
       };
-  
+
       // Read the selected file as a data URL
       console.log(reader.readAsDataURL(selectedFile));
     }
-  }
+  };
 
   return (
     <div className="register-main">
@@ -188,15 +190,17 @@ const Regester = () => {
           required
           autoComplete="off"
         />
-        <div className={passwordStrength ? "password-details" : "password-hide"}>
-        {passwordStrength && (
-          <div className="password-strength">
-            Password Strength: {passwordStrength}
-          </div>
-        )}
-        {passwordError && (
-          <div className="password-error">{passwordError}</div>
-        )}
+        <div
+          className={passwordStrength ? "password-details" : "password-hide"}
+        >
+          {passwordStrength && (
+            <div className="password-strength">
+              Password Strength: {passwordStrength}
+            </div>
+          )}
+          {passwordError && (
+            <div className="password-error">{passwordError}</div>
+          )}
         </div>
         <input
           type="tel"
@@ -256,17 +260,33 @@ const Regester = () => {
               </select>
             )}
             <label htmlFor="file-upload">
-              <div className="upload-button"><FaFileUpload style={{marginLeft:"2px"}}/><p>Upload Document to verify as Mechanic</p></div>
+              <div className="upload-button">
+                <FaFileUpload style={{ marginLeft: "2px" }} />
+                <p>Upload Document to verify as Mechanic</p>
+              </div>
             </label>
             <input
               type="file"
-              lable ="file"
-              name = "myFile"
+              lable="file"
+              name="myFile"
               id="file-upload"
-              accept ='.jpeg, .png, .jpg, .pdf'
+              accept=".jpeg, .png, .jpg, .pdf"
               className="mech-input-class"
               onChange={(e) => handleFileUpload(e)}
               required
+            />
+            <input
+              type="Number"
+              className="mech-input-class"
+              id="Charge"
+              name="Charge"
+              placeholder="Minimum Charge in Rs"
+              pattern="[0-9]{10}" // Pattern to allow only 10 digits
+              maxLength="5"
+              value={MinimumCharge}
+              onChange={(e) => setMinimumCharge(e.target.value.substring(0, 5))}
+              required
+              autoComplete="off"
             />
             <input
               type="text"
