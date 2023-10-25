@@ -14,9 +14,6 @@ module.exports = {
 
     return config;
   },
-};
-
-module.exports = {
   env: {
     SENDINBLUE_API_KEY: process.env.SENDINBLUE_API_KEY,
   },
