@@ -27,7 +27,7 @@ export async function SendMail({ status, to, subject, text }) {
       emailData,
       {
         headers: {
-          'api-key': "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",
+          'api-key': "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",
           'Content-Type': 'application/json',
           'accept': 'application/json'
         }
