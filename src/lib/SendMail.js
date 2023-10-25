@@ -1,7 +1,7 @@
 "use client";
 import axios from 'axios';
 
-// const SENDINBLUE_API_KEY = process.env.SENDINBLUE_API_KEY
+const SENDINBLUE_API_KEY = "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";
 
 export async function SendMail({ status, to, subject, text }) {
   try {
@@ -27,7 +27,7 @@ export async function SendMail({ status, to, subject, text }) {
       emailData,
       {
         headers: {
-          'api-key': "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",
+          'api-key': SENDINBLUE_API_KEY,
           'Content-Type': 'application/json',
           'accept': 'application/json'
         }
