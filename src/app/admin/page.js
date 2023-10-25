@@ -36,7 +36,7 @@ const Admin = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/mechanicdetails"
+          "/api/mechanicdetails"
         );
         const data = await response.json();
 
@@ -59,7 +59,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/userdetails");
+        const response = await fetch("/api/userdetails");
         const data = await response.json();
 
         if (data.success) {

@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 export default async function UpdateMech(userid, value){
     let mechData = await fetch(
-      "http://localhost:3000/api/mechanicdetails/" + userid,
+      "/api/mechanicdetails/" + userid,
       {
         method: "PUT",
         body: JSON.stringify({ Status: value }),

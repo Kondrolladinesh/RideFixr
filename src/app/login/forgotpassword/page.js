@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./forgotPassword.css";
 import { SendMail } from "@/lib/SendMail";
 import Cookies from "js-cookie";
@@ -20,6 +20,7 @@ const ForgotPassword = () => {
   const [otp, setOtp] = useState("");
   const [userId, setUserId] = useState(null);
   const [APIUrl, setAPIUrl] = useState("");
+  const [timer, setTimer] = useState(180); // 3 minutes in seconds
 
   const router = useRouter();
 
@@ -164,6 +165,18 @@ const ForgotPassword = () => {
     }
   };
 
+
+  useEffect(() => {
+    // Start a countdown timer when otpSent becomes true
+    if (otpSent && timer > 0) {
+      const interval = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }
+  }, [otpSent, timer]);
+
   return (
     <div className="login-main">
       <form className="reset-form">
@@ -182,6 +195,7 @@ const ForgotPassword = () => {
             />
           )}
           {otpVerified !== "verified" && otpSent && (
+            <>
             <input
               type="text"
               placeholder="Enter OTP"
@@ -189,6 +203,12 @@ const ForgotPassword = () => {
               onChange={(e) => setOtp(e.target.value)}
               required
             />
+            {timer > 0 ? (
+              <p>Time remaining: {Math.floor(timer / 60)}:{timer % 60 < 10 ? "0" : ""}{timer % 60}</p>
+            ) : (
+              <button onClick={sendOtp}>Resend OTP</button>
+            )}
+            </>
           )}
           {otpVerified === "verified" && (
             <>

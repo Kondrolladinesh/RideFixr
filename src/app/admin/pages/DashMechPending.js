@@ -94,7 +94,7 @@ const DashMechPending = ({ MechDetails }) => {
 
   const FindPDFOfMech = async (mech_id) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/mechanicPDF/${mech_id}`);
+      const response = await fetch(`/api/mechanicPDF/${mech_id}`);
       const userData = await response.json();
       if (userData.success) {
         viewDocument(userData.result.UploadFile);
