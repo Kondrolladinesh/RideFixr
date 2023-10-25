@@ -1,8 +1,9 @@
 let geocoder;
+const APIKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 export default async function codeAddress(address) {
-    geocoder = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyC_9cAGZnlvSGLKRUMCxIgteTpaMvE83oY`)
+
+    geocoder = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${APIKey}`)
     geocoder = await geocoder.json();
-    // console.log(geocoder.results[0].geometry.location);
     return geocoder.results[0].geometry.location;
   }
 

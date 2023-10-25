@@ -1,9 +1,8 @@
 "use client";
 import axios from 'axios';
 
-const SENDINBLUE_API_KEY = "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";
-
 export async function SendMail({ status, to, subject, text }) {
+  const sendinblueApiKey = process.env.SENDINBLUE_API_KEY;
   try {
     let emailData;
     if (status === "contact") {
@@ -21,13 +20,12 @@ export async function SendMail({ status, to, subject, text }) {
         sender: { email: 'ridefixr@gmail.com' }
       };
     }
-
     const response = await axios.post(
       'https://api.sendinblue.com/v3/smtp/email',
       emailData,
       {
         headers: {
-          'api-key': SENDINBLUE_API_KEY,
+          'api-key': sendinblueApiKey,
           'Content-Type': 'application/json',
           'accept': 'application/json'
         }

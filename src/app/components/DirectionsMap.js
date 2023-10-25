@@ -38,10 +38,11 @@ function initMap(origin, destination) {
 }
 
 function DirectionsMap({ origin, destination }) {
+  const APIKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
   useEffect(() => {
     if (!window.google) {
       loadScript(
-        `https://maps.googleapis.com/maps/api/js?key=AIzaSyC_9cAGZnlvSGLKRUMCxIgteTpaMvE83oY&callback=initMap`,
+        `https://maps.googleapis.com/maps/api/js?key=${APIKey}&callback=initMap`,
         () => {
           initMap(origin, destination);
         }

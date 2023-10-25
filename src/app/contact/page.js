@@ -14,7 +14,8 @@ const ContactPage = () => {
 
   const router = useRouter();
 
-  const handleSendEmail = async () => {
+  const handleSendEmail = async (e) => {
+    e.preventDefault();
     const emailSent = await SendMail({
       status: "contact",
       to: email,
