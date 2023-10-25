@@ -206,7 +206,7 @@ const ForgotPassword = () => {
             {timer > 0 ? (
               <p>Time remaining: {Math.floor(timer / 60)}:{timer % 60 < 10 ? "0" : ""}{timer % 60}</p>
             ) : (
-              <button onClick={sendOtp}>Resend OTP</button>
+              <button type="submit" onClick={sendOtp}>Resend OTP</button>
             )}
             </>
           )}
