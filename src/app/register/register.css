@@ -80,9 +80,9 @@
     color: #26577C;
 }
 
-.register-form input[type="file"]{
+/* .register-form input[type="file"]{
     display: none;
-  }
+  } */
 
 .register-form .upload-button{
     display: flex;
