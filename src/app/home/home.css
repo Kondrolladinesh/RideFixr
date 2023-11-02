@@ -333,6 +333,12 @@
   margin: 2px;
 }
 
+.details-panel .h6_Style{
+  margin: 2px;
+  display: flex;
+  align-items: flex-end;
+}
+
 .details-panel .full-star {
   color: gold; /* Color for full stars */
   font-size: 20px; /* Adjust the size as needed */

@@ -236,12 +236,12 @@ const MechCard = ({
             <h6>{nearby} Kms</h6>
           </div>
           <div className="mech_details">
-            <h6>Min Charge:</h6>
-            <h6>{serviceCharge} Rs</h6>
+            <h6>Service Charge:</h6>
+            <h6 className="h6_Style">{serviceCharge} Rs</h6>
           </div>
           <div className="mech_details">
-            <h6>Tran Charge:</h6>
-            <h6>{nearby < 4 ? 0 : (nearby * 6).toFixed(0)} Rs</h6>
+            <h6>Transport Charge:</h6>
+            <h6 className="h6_Style">{nearby < 4 ? 0 : (nearby * 6).toFixed(0)} Rs</h6>
           </div>
           <div className="mech_details">
             <h6>Rating:</h6>
