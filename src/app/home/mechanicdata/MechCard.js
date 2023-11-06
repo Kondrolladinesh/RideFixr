@@ -5,12 +5,15 @@ import { MdOutlineConnectWithoutContact } from "react-icons/md";
 import { GrStatusCriticalSmall, GrFormClose } from "react-icons/gr";
 import { FaTimes, FaCopy, FaFacebookMessenger } from "react-icons/fa";
 import { PiUserCircleFill } from "react-icons/pi";
+import { RiMapPinUserFill } from "react-icons/ri";
 import cookies from "js-cookie";
 import Modal from "react-modal";
 import StarRating from "@/app/components/StarRating";
 import getDateTime from "@/app/components/getDateTime";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Image from "next/image";
+import DirectionsMap from "@/app/components/DirectionsMap";
 
 const MechCard = ({
   id,
@@ -22,6 +25,8 @@ const MechCard = ({
   nearby,
   userList,
   feedbackList,
+  sCoords,
+  dCoords,
   onConnectMech,
   onCancelMech,
   onFeedback,
@@ -29,6 +34,7 @@ const MechCard = ({
   const [userStatus, setUserStatus] = useState();
   const [activeProfile, setActiveProfile] = useState(false);
   const [activeQuery, setActiveQuery] = useState(false);
+  const [activeMap, setActiveMap] = useState(false);
   const [feedBack, setFeedBack] = useState("");
   const [Query, setQuery] = useState("");
   const [userID, setUserID] = useState();
@@ -36,6 +42,7 @@ const MechCard = ({
   const [cancelled, setCancelled] = useState();
   const [rating, setRating] = useState(0);
   const [MechanicRating, setMechanicRating] = useState(0);
+  const [pdfUrl, setPdfUrl] = useState("");
 
   const userid = cookies.get("userid");
   useEffect(() => {
@@ -142,7 +149,7 @@ const MechCard = ({
     };
     updateMech(id, req, false);
     setActiveQuery(!activeQuery);
-  }
+  };
 
   const handleRatingChange = (newRating) => {
     setRating(newRating);
@@ -192,19 +199,68 @@ const MechCard = ({
         toast("Number Copied", {
           position: toast.POSITION.BOTTOM_CENTER,
         });
-        // Optionally, you can show a notification or provide user feedback here
       })
       .catch((error) => {
         console.error("Failed to copy phone number: ", error);
       });
   };
 
+  const FindprofileOfUser = async () => {
+    try {
+      const response = await fetch(`/api/mechprofiles/${id}`);
+      if (response.ok) {
+        const profileData = await response.json();
+        // setPdfUrl(base64ToImageUrl(userData.result.ProfileUrl));
+        if (profileData.result && profileData.result.ProfileUrl) {
+          setPdfUrl(base64ToImageUrl(profileData.result.ProfileUrl));
+        }
+      } else {
+        console.error("Data retrieval was not successful");
+      }
+    } catch (error) {
+      console.error("Error in getUserDetails:", error);
+      throw error;
+    }
+  };
+
+  function base64ToImageUrl(base64Data) {
+    const parts = base64Data.split(","); // Split the data URL by ","
+
+    if (parts.length === 2) {
+      const mimeType = parts[0].match(/:(.*?);/)[1]; // Extract the MIME type
+      const base64 = parts[1]; // Extract the base64 data
+      const uint8Array = new Uint8Array( // Convert base64 to Uint8Array
+        atob(base64)
+          .split("")
+          .map((char) => char.charCodeAt(0))
+      );
+
+      const blob = new Blob([uint8Array], { type: mimeType }); // Create a Blob with the Uint8Array data
+      return URL.createObjectURL(blob); // Create a URL for the Blob
+    } else {
+      console.error("Invalid base64 data URL format");
+      return null;
+    }
+  }
+
+  useEffect(() => {
+    FindprofileOfUser();
+  }, []);
+
+  // console.log(sCoords)
+  // console.log(dCoords)
   return (
     <div className="Mech-card-container">
       <div className="Mech-card">
         <div className="profile-panel">
-          {/* <h4>profile</h4> */}
-          <PiUserCircleFill className="profile-icon" />
+          {/* <PiUserCircleFill className="profile-icon" /> */}
+          <Image
+            src={pdfUrl || "/draft_user_profile_icon.png"}
+            alt="User Profile"
+            width={90}
+            height={90}
+            style={{ borderRadius: "50%", transform: "scale(1.1)" }}
+          />
         </div>
         <div className="details-panel">
           <div className="mech_details">
@@ -241,7 +297,9 @@ const MechCard = ({
           </div>
           <div className="mech_details">
             <h6>Transport Charge:</h6>
-            <h6 className="h6_Style">{nearby < 4 ? 0 : (nearby * 6).toFixed(0)} Rs</h6>
+            <h6 className="h6_Style">
+              {nearby < 4 ? 0 : (nearby * 6).toFixed(0)} Rs
+            </h6>
           </div>
           <div className="mech_details">
             <h6>Rating:</h6>
@@ -267,8 +325,16 @@ const MechCard = ({
               </div>
               {userStatus == "Pending" && (
                 <div onClick={handleQuery}>
-                  <FaFacebookMessenger className="icon"/>
+                  <FaFacebookMessenger className="icon" />
                   Query
+                </div>
+              )}
+              {userStatus == "On the Way" && (
+                <div
+                  onClick={() => setActiveMap(!activeMap)}
+                  className="map-box"
+                >
+                  <RiMapPinUserFill className="icon" />
                 </div>
               )}
               <button className="Cancel" onClick={handleCancle}>
@@ -343,6 +409,20 @@ const MechCard = ({
             />
             <button type="submit">Submit</button>
           </form>
+        </div>
+      </Modal>
+      <Modal
+        backdrop="transparent"
+        isOpen={activeMap}
+        onRequestClose={() => setActiveMap(!activeMap)}
+        className="map-modal"
+      >
+        <div className="cancel-icon">
+          <FaTimes size={24} onClick={() => setActiveMap(!activeMap)} />
+        </div>
+        <div className="map-container">
+          <h2>Google Maps Directions</h2>
+          <DirectionsMap origin={dCoords} destination={sCoords} />
         </div>
       </Modal>
       <ToastContainer limit={2} />

@@ -182,6 +182,8 @@ export default function MechanicDataType(props) {
             }).toFixed(2)}
             userList={item.UserArray}
             feedbackList={item.UserFeedback}
+            sCoords={{ lat: sCoords.latitude, lng: sCoords.longitude }}
+            dCoords={{ lat: parseFloat(item.Latitude), lng: parseFloat(item.Longitude) }}
             onConnectMech={handleConnectMech}
             onCancelMech={handleCancelMech}
             onFeedback={handleFeedback}
