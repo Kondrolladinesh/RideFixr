@@ -221,7 +221,7 @@ const UserCard = ({
         <div className="feedback-container">
           <h2>User facing these Problem</h2>
           <div className="query-box">
-            <p>{query}</p>
+          <h4>{query === '' ? "User didn't mentioned problem" : query}</h4>
           </div>
         </div>
       </Modal>
