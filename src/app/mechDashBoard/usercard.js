@@ -7,6 +7,7 @@ import {
   FaPhoneAlt,
   FaRegClock,
   FaTimes,
+  FaRupeeSign
 } from "react-icons/fa";
 import { GrStatusCriticalSmall } from "react-icons/gr";
 import { GiPathDistance } from "react-icons/gi";
@@ -169,6 +170,10 @@ const UserCard = ({
         <div>
           <GiPathDistance />
           <h4>{distance} Km</h4>
+        </div>
+        <div>
+          <FaRupeeSign />
+          <h4>Transport charge: {distance < 4 ? 0 : (distance * 6).toFixed(0)} Rs</h4>
         </div>
         <div>
           <FaRegClock />

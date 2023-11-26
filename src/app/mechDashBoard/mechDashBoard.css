@@ -83,13 +83,13 @@
   grid-template-columns: 0.8fr 1.8fr 1.4fr 2fr;
   background-color: #ebe4d1;
   width: 99%;
-  height: 100px;
+  height: 120px;
   margin: 10px;
   border-radius: 10px;
   @media (max-width: 768px) {
     grid-template-rows: 2fr 1fr;
     grid-template-columns: 1fr 2fr;
-    height:  150px;
+    height:  155px;
   }
 }
 
