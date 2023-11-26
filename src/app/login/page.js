@@ -38,7 +38,7 @@ const Login = () => {
           result = userResult;
         }
       }
-      const fiveMinsInSeconds = 5 * 60 * 1000; // 5 hours in seconds
+      const fiveMinsInSeconds = 15 * 60 * 1000; 
       const expirationTime = new Date(Date.now() + fiveMinsInSeconds).toUTCString();
       if (result && result.Status) {
         // Verification successful
