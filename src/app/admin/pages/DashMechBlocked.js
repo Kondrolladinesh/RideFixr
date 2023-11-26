@@ -34,7 +34,7 @@ const DashMechBlocked = ({ MechDetails }) => {
     const emailSent = await SendMail({
       status: "blocked",
       to: content.Email,
-      subject: "Status: Blocked by RideFixr",
+      subject: "Status: UnBlocked by RideFixr",
       text: `Congratulations ${content.Name}!!,\n\nYou have been unblocked and verified by the RideFixr admin
        after providing valid documentation and reasons. You're all set to continue providing your valuable 
        services to our users.\n\nThank you for joining us again!\n\nBest regards, \nThe RideFixr Team`,
