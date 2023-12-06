@@ -12,7 +12,8 @@ const userModel = new mongoose.Schema({
             Rating: Number,
             DateTime: String
         }
-      ]
+    ]
 })
 
-export const User = mongoose.models.userdetails || mongoose.model("userdetails",userModel);
+export const User = mongoose.models.userdetails 
+|| mongoose.model("userdetails",userModel);
